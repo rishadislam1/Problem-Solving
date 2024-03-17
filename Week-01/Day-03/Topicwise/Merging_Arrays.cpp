@@ -3,6 +3,8 @@ using namespace std;
 
 int main()
 {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
     int n, m;
     cin >> n >> m;
     int arrA[n], arrB[m];
@@ -14,17 +16,15 @@ int main()
     {
         cin >> arrB[i];
     }
-    int l = 0;
-    int r = 0;
+    int l = 0, r = 0;
     while (r < m)
     {
-        while (l <= r)
+        while (arrB[r] > arrA[l] && l < n)
         {
-            if (arrA[l] <= arrB[r])
-            {
-                cout << arrA[l];
-                l++;
-            }
+            cout << arrA[l] << " ";
+            l++;
         }
+        cout<<arrB[r]<<" ";
+        r++;
     }
 }
