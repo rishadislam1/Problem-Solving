@@ -16,15 +16,39 @@ int main()
     {
         cin >> arrB[i];
     }
-    long long l = 0, r = 0;
+    long long l = 0, r = 0, k = 0, marge[n + m];
+
+    while (l < n && r < m)
+    {
+        if (arrA[l] < arrB[r])
+        {
+            marge[k] = arrA[l];
+            l++;
+            k++;
+        }
+        else
+        {
+            marge[k] = arrB[r];
+            r++;
+            k++;
+        }
+    }
+
+    while (l < n)
+    {
+        marge[k] = arrA[l];
+        k++;
+        l++;
+    }
     while (r < m)
     {
-        while (arrB[r] >= arrA[l] && l < n)
-        {
-            cout << arrA[l] << " ";
-            l++;
-        }
-        cout<<arrB[r]<<" ";
+        marge[k] = arrB[r];
+        k++;
         r++;
+    }
+
+    for (int i = 0; i < n + m; i++)
+    {
+        cout << marge[i] << " ";
     }
 }
