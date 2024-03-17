@@ -5,21 +5,21 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-    int n, m;
+    long long n, m;
     cin >> n >> m;
-    int arrA[n], arrB[m];
-    for (int i = 0; i < n; i++)
+    long long arrA[n], arrB[m];
+    for (long long i = 0; i < n; i++)
     {
         cin >> arrA[i];
     }
-    for (int i = 0; i < m; i++)
+    for (long long i = 0; i < m; i++)
     {
         cin >> arrB[i];
     }
-    int l = 0, r = 0;
+    long long l = 0, r = 0;
     while (r < m)
     {
-        while (arrB[r] > arrA[l] && l < n)
+        while (arrB[r] >= arrA[l] && l < n)
         {
             cout << arrA[l] << " ";
             l++;
